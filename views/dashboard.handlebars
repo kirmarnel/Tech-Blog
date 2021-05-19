@@ -1,0 +1,10 @@
+<h2 id='dashboard'>Dashboard</h2>
+<section id='dashPosts'>
+{{#each posts as |post|}}
+<div id='dashPost'>
+<h3 id='dashPostTitle'>{{post.title}}</h3>
+<p id='dashPostContents'>{{post.contents}}</p>
+</div>
+{{/each}}
+</section>
+

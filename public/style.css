@@ -1,0 +1,58 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+h1 {
+    height: 80px;
+    width: 100%;
+    color: rgb(84, 119, 150);
+    font-size: 3rem;
+}
+
+header {
+    display: flex;
+    height: 100px;
+    justify-content: space-between;    
+    align-items: flex-end;
+    padding: 10px;
+    flex-wrap: wrap;
+    background-color: rgb(25, 52, 88);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    min-width: 800px;
+    list-style: none;
+    font-size: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(84, 119, 150);
+}
+
+#dashPostTitle {
+    padding: 10px;
+    border: solid;
+    margin: 10px;
+}
+
+#dashPostContents {
+    padding: 10px;
+    margin: 10px;
+}
+
+#dashPost {
+    border: solid;
+    margin: 20px;
+}
+
+#dashboard {
+    text-align: center;
+    margin: 10px;
+    font-size: 2rem;
+}
+
+
