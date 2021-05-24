@@ -11,7 +11,7 @@ h1 {
 
 header {
     display: flex;
-    height: 100px;
+    height: 20%;
     justify-content: space-between;    
     align-items: flex-end;
     padding: 10px;
@@ -33,11 +33,6 @@ a {
     color: rgb(84, 119, 150);
 }
 
-#dashPostTitle {
-    padding: 10px;
-    border: solid;
-    margin: 10px;
-}
 
 #dashPostContents {
     padding: 10px;
@@ -47,6 +42,9 @@ a {
 #dashPost {
     border: solid;
     margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #dashboard {
@@ -55,4 +53,18 @@ a {
     font-size: 2rem;
 }
 
+button {
+    margin-left: 50%; 
+}
 
+#postTitle {
+    display: none;
+}
+
+#postContent {
+    display: none;
+}
+
+#submit {
+    display: none;
+}

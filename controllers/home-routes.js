@@ -1,37 +1,67 @@
 const router = require('express').Router();
-const  Posts  = require("../models/blogPosts.js");
+const sequelize = require('../config/connection');
+const { Post, User } = require('../models');
 
-
-router.get('/', async (req, res) => {
-    // console.log(req.findAll())
-    // console.log(res.findAll())
-    try {
-       
-      const postData = await Posts.findAll();
+router.get('/', (req, res) => {
+    console.log(req.session);
     
-  
-      const posts = postData.map((post) =>
-        post.get({ plain: true })
-      );
-
-      res.render('dashboard', {
-        posts,
+    Post.findAll({
+      attributes: [
+        'id',
+        'title',
+        'created_at',
+        'contents'
+      ]
+    })
+      .then(postData => {
+        const posts = postData.map(post => post.get({ plain: true }));
+        res.render('home', {
+            posts,
+            loggedIn: req.session.loggedIn
+          });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
       });
-    } catch (err) {
-      console.log(err);
-      res.status(500).json(err);
-    }
   });
 
-    router.get('/login', (req, res) => {
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+  
     res.render('login');
-});
+  });
 
-router.get('/signup', (req, res) => {
+  router.get('/signup', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+  
     res.render('signup');
+  });
+
+  router.get('/post/:id', (req, res) => {
+    Post.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        'id',
+        'title',
+        'created_at',
+        'post_content'
+      ]
+    })
+      .then(postData => {
+        if (!postData) {
+          res.status(404).json({ message: 'Post cannot be found' });
+          return;
+        }
+      });
 });
-
-
-
 
 module.exports = router;

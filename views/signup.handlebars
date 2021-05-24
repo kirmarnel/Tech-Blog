@@ -1,17 +1,18 @@
-<form class="box">
+<form id='signUpForm' class="box">
   <div class="field">
     <label class="label">Username</label>
     <div class="control">
-      <input class="input" type="input">
+      <input id='signUpUsername' class="input" type="input">
     </div>
   </div>
 
   <div class="field">
     <label class="label">Password</label>
     <div class="control">
-      <input class="input" type="password" placeholder="********">
+      <input id='signUpPw' class="input" type="password" placeholder="********">
     </div>
   </div>
-
-  <button class="button is-primary">Sign Up</button>
+  <button type='submit' class="button is-primary">Sign Up</button>
 </form>
+
+<script src='../public/js/signup.js'></script>
