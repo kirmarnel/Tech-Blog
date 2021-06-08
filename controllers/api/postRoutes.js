@@ -46,16 +46,20 @@ router.get('/', (req, res) => {
   });
 
 router.post('/', withAuth, (req, res) => {
-    Post.create({
-      title: req.body.title,
-      postContent: req.body.postContent,
-      user_id: req.session.user_id
+    const body = req.body
+    try {
+
+    
+  const newPost = Post.create({
+     ...body,
+      userId: req.session.userId
     })
-      .then(postData => res.json(postData))
-      .catch(err => {
+    res.json(newPost)
+  }
+      catch(err){
         console.log(err);
         res.status(500).json(err);
-      });
+      };
 });
 
 router.put('/:id', withAuth, (req, res) => {

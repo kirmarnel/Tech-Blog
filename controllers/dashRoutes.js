@@ -4,15 +4,16 @@ const { Post, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, (req, res) => {
+  console.log(req.session.userId)
     Post.findAll({
       where: {
-        user_id: req.session.user_id
+        user_id: req.session.userId
       },
       attributes: [
         'id',
         'title',
         'created_at',
-        'postContent'
+        'contents'
       ],
       include: [
         {
@@ -40,7 +41,7 @@ router.get('/', withAuth, (req, res) => {
         'id',
         'title',
         'created_at',
-        'post_content'
+        'contents'
       ]
     })
       .then(postData => {
@@ -65,13 +66,13 @@ router.get('/', withAuth, (req, res) => {
 router.get('/create/', withAuth, (req, res) => {
     Post.findAll({
       where: {
-        user_id: req.session.user_id
+        user_id: req.session.userId
       },
       attributes: [
         'id',
         'title',
         'created_at',
-        'postContent'
+        'contents'
       ],
       include: [
         {
@@ -89,6 +90,10 @@ router.get('/create/', withAuth, (req, res) => {
         res.status(500).json(err);
       });
   });
+
+
+
+
 
 
 module.exports = router;

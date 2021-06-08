@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.post('/', async (req, res) => {
+router.post('/signup', async (req, res) => {
     try {
         
     
@@ -65,6 +65,7 @@ router.post('/', async (req, res) => {
         res.json(err)
     }
 });
+
 
 
   router.post('/login', (req, res) => {
