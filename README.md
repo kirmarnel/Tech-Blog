@@ -1,7 +1,7 @@
 # Employee Tracker
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ## Description 
-This project is a tech blog that allows users to post about cool things they have learned. 
+This project is a tech blog that allows users to post about cool things they have learned. Technologies used are HTML, CSS, MySql, Node and Javascript.
 
 ## Table of Contents 
     
