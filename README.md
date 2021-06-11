@@ -6,18 +6,16 @@ This project is a tech blog that allows users to post about cool things they hav
 ## Table of Contents 
     
 * [Installation](#installation)
-* [Usage](#usage)
 * [License](#license)
 * [Contributing](#contributing)
 * [Tests](#tests)
-* [Questions](#questions)
     
     
 ## Installation Instructions <a id="installation"></a>
 To install necessary dependancies run thr following command:
 npm i
 To start the application run the following command:
-npwm start
+npm start
 
 ## License <a id="license"></a>
 This project is licensed with MIT
