@@ -92,6 +92,38 @@ router.get('/create/', withAuth, (req, res) => {
   });
 
 
+  router.get('/edit/:id', withAuth, (req, res) => {
+    Post.findOne({
+      where: {
+        id: req.params.id
+      },
+      attributes: [
+        'id',
+        'title',
+        'created_at',
+        'contents'
+      ]
+    })
+      .then(PostData => {
+        if (!PostData) {
+          res.status(404).json({ message: 'No post found' });
+          return;
+        }
+  
+        const post = PostData.get({ plain: true });
+
+        res.render('editPost', {
+            post,
+            loggedIn: true
+            });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+});
+
+
 
 
 

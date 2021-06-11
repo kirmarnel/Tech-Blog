@@ -46,13 +46,15 @@ router.get('/', (req, res) => {
   });
 
 router.post('/', withAuth, (req, res) => {
+  console.log(req.body)
     const body = req.body
     try {
 
     
   const newPost = Post.create({
-     ...body,
-      userId: req.session.userId
+     title: req.body.title,
+     contents: req.body.postContent,
+    user_id: req.session.userId
     })
     res.json(newPost)
   }

@@ -1,8 +1,14 @@
 <h1>Welcome to your dashboard!</h1>
 <a href='/dashboard/create/'><button>CreatePost</button></a>
-{{#each posts as |post|}}
-{{!-- {{ postDetails post}} --}}
-<p>{{title}}</p>
+<div>
+
+{{#each posts as |post|}} 
+{{> postDetails post}}
+<div>
+    <p>{{title}}</p>
+</div>
+
 <div>{{body}}</div>
  <a href="/dashboard/edit/{{post.id}}">Edit Post</a>
 {{/each}}
+</div>
